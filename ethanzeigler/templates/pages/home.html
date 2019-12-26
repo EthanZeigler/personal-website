@@ -1,1 +1,174 @@
 {% extends "base.html" %}
+{% comment %}  {% endcomment %}
+{% block navigation %}{% endblock navigation %}
+
+{% block complete-content %}
+
+<!-- Header -->
+  <header class="masthead-full d-flex">
+  <div class="attribution"><a href="https://www.outdoorproject.com/users/tyson-gillard">img_attr:Tyson Gillard</a></div>
+    <div class="container text-center my-auto">
+      <h1 class="mb-1">Ethan Zeigler</h1>
+      <h3 class="mb-5">
+        <em>Software Solutions</em> for Real World Problems</em>
+      </h3>
+      <div class="flex-container">
+        <a class="btn btn-primary btn-lg m-2 js-scroll-trigger" href="https://calendar.google.com/calendar/embed?src=p6cvqb95rs0cmoh9o70narodpo%40group.calendar.google.com&ctz=America%2FNew_York">Tutoring Calendar</a>
+        <a class="btn btn-primary btn-lg m-2 js-scroll-trigger" href="https://resume.creddle.io/resume/140ckly496">Résumé</a>     
+        <a class="btn btn-primary btn-lg m-2 js-scroll-trigger" href="https://blog.ethanzeigler.com/">Technology Blog</a>
+        <a class="btn btn-primary btn-lg m-2 js-scroll-trigger" href="http://nossl.ethanzeigler.com/advisor.html">Advisor</a>
+      </div>
+    </div>
+    <div class="overlay"></div>
+  </header>
+
+  <!-- About -->
+  <section class="content-section bg-light" id="about">
+    <div class="flex-container text-center">
+      <div class="flex-row">
+        <div class="row-lg-10 mx-auto plain-section row">
+          <div class="col ez-icon"></div>
+          <div class="col">
+            <h2 class="mb-30px">
+              “Your work is going to fill a large part of your life, and the only way to be truly
+              satisfied is to do what you believe is great work.” - <i>Jobs</i>
+            </h2>
+            <p class="lead">This isn't here because its inspiring, but because it's how I do my work every day.</p>
+            <p class="lead mb-50px">A job done poorly is not truly done.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section class="content-section bg-primary text-white text-center" id="services">
+    <div class="container">
+      <div class="content-section-heading">
+        <h3 class="text-secondary mb-0">Why hire me?</h3>
+        <h2 class="mb-5">I am...</h2>
+      </div>
+      <div class="row">
+        <div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
+          <span class="service-icon rounded-circle mx-auto mb-3">
+            <i class="icon-bulb"></i>
+          </span>
+          <h4>
+            <strong>Intuitive</strong>
+          </h4>
+          <p class="text-faded mb-0">Sometimes the simplest solutions are the best</p>
+        </div>
+        <div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
+          <span class="service-icon rounded-circle mx-auto mb-3">
+            <i class="icon-energy"></i>
+          </span>
+          <h4>
+            <strong>Enthusiastic</strong>
+          </h4>
+          <p class="text-faded mb-0">Applying new and old techniques to improve your projects</p>
+        </div>
+        <div class="col-lg-3 col-md-6 mb-5 mb-md-0">
+          <span class="service-icon rounded-circle mx-auto mb-3">
+            <i class="icon-folder"></i>
+          </span>
+          <h4>
+            <strong>Well Rounded</strong>
+          </h4>
+          <p class="text-faded mb-0">Exposure from Angular and nginx to good ol' C</p>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <span class="service-icon rounded-circle mx-auto mb-3">
+            <i class="icon-book-open"></i>
+          </span>
+          <h4>
+            <strong>Scholarly</strong>
+          </h4>
+          <p class="text-faded mb-0">Ready and eager to learn the tools of your trade</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Callout -->
+  <section class="callout">
+    <div class="container text-center">
+      <h2 class="mx-auto">Have an empty space on your canvas, or need to smooth out some edges?
+        <em>Let's make something great together!</em>
+      </h2>
+      <a class="mb-0 btn btn-primary btn-xl" href="mailto:zeiglee1@tcnj.edu">Contact me!</a>
+    </div>
+  </section>
+
+  <!-- Portfolio -->
+  <section class="content-section" id="portfolio">
+    <div class="container">
+      <div class="content-section-heading text-center">
+        <h3 class="text-secondary mb-0">Portfolio</h3>
+        <h2 class="mb-5">Recent Projects</h2>
+        <h5 class="mb-5">Pages "Under Construction" right now. Checkout my
+          <a href="https://github.com/EthanZeigler">github</a> for the time being!
+        </h5>
+      </div>
+      <div class="row no-gutters">
+        <!--<div class="col-lg-6">
+          <a class="portfolio-item" href="#">
+            <span class="caption">
+              <span class="caption-content">
+                <h2>Stationary</h2>
+                <p class="mb-0">A yellow pencil with envelopes on a clean, blue backdrop!</p>
+              </span>
+            </span>
+            <img class="img-fluid" src="img/portfolio-1.jpg" alt="">
+          </a>
+        </div>
+        <div class="col-lg-6">
+          <a class="portfolio-item" href="#">
+            <span class="caption">
+              <span class="caption-content">
+                <h2>Ice Cream</h2>
+                <p class="mb-0">A dark blue background with a colored pencil, a clip, and a tiny ice cream cone!</p>
+              </span>
+            </span>
+            <img class="img-fluid" src="img/portfolio-2.jpg" alt="">
+          </a>
+        </div>
+        <div class="col-lg-6">
+          <a class="portfolio-item" href="#">
+            <span class="caption">
+              <span class="caption-content">
+                <h2>Strawberries</h2>
+                <p class="mb-0">Strawberries are such a tasty snack, especially with a little sugar on top!</p>
+              </span>
+            </span>
+            <img class="img-fluid" src="img/portfolio-3.jpg" alt="">
+          </a>
+        </div>
+        <div class="col-lg-6">
+          <a class="portfolio-item" href="#">
+            <span class="caption">
+              <span class="caption-content">
+                <h2>Workspace</h2>
+                <p class="mb-0">A yellow workspace with some scissors, pencils, and other objects.</p>
+              </span>
+            </span>
+            <img class="img-fluid" src="img/portfolio-4.jpg" alt="">
+          </a>
+        </div>-->
+      </div>
+    </div>
+  </section>
+
+  <!-- Call to Action -->
+  <section class="content-section bg-primary text-white">
+    <div class="container text-center">
+      <h2 class="mb-4">Hey, You!</h2>
+      <h4 class="mb-10">Want to learn the inner workings of the technology world,
+        but intimidated by how complicated it can be? <i>Check out my blog!</i>
+        I explain everything without assuming prior knowledge!
+      </h4>
+      <a href="#page-top" class="btn btn-xl btn-light mr-4 ml-4 mb-30px mt-30px">Back to top</a>
+      <a href="https://blog.ethanzeigler.com" class="btn btn-xl btn-dark align-content-center">The Local Computer Guy</a>
+    </div>
+  </section>
+
+{% endblock complete-content %}

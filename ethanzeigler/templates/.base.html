@@ -1,7 +1,6 @@
 {% load static i18n %}<!DOCTYPE html>
 <html lang="en">
   <head>
-  {% comment %} TODO: Add comfortaa font {% endcomment %}
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>{% block title %}portfolio{% endblock title %}</title>
@@ -17,11 +16,15 @@
     <link rel="icon" href="{% static 'images/favicons/favicon.ico' %}">
 
     {% block css %}
+    
+    <!-- Latest compiled and minified Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    
 
-    <!-- Third-party CSS libraries -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.min.css" integrity="sha256-7O1DfUu4pybYI7uAATw34eDrgQaWGOfMV/8erfDQz/Q=" crossorigin="anonymous" />
-
-    <!-- Project-specific CSS -->
+    <!-- Your stuff: Third-party CSS libraries go here -->
+    
+    <!-- This file stores project-specific CSS -->
+    
     <link href="{% static 'css/project.min.css' %}" rel="stylesheet">
     
     
@@ -30,15 +33,15 @@
   </head>
 
   <body>
-  {% block navigation %}
-  <div class="mb-1">
-      <nav class="navbar navbar-dark navbar-expand-md bg-primary">
-        <a class="navbar-brand" href="{% url 'home' %}">portfolio</a>
+
+    <div class="mb-1">
+      <nav class="navbar navbar-expand-md navbar-light bg-light">
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
+        <a class="navbar-brand" href="{% url 'home' %}">portfolio</a>
 
-        <div class="collapse navbar-collapse navbarColor01" id="navbarSupportedContent">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
               <a class="nav-link" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
@@ -68,50 +71,22 @@
           </ul>
         </div>
       </nav>
-    </div>
-  {% endblock navigation %}
-    
-    {% block complete-content %}
-    
-    {% endblock complete-content %}
 
-      {% comment %} {% block content %}
-        <p>Use this document as a way to quick start any new project.</p>
-      {% endblock content %}
+    </div>
+
     <div class="container">
+
       {% if messages %}
           {% for message in messages %}
               <div class="alert {% if message.tags %}alert-{{ message.tags }}{% endif %}">{{ message }}<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>
           {% endfor %}
-      {% endif %} {% endcomment %}
+      {% endif %}
 
+      {% block content %}
+        <p>Use this document as a way to quick start any new project.</p>
+      {% endblock content %}
 
     </div> <!-- /container -->
-
-    <!-- Footer -->
-  <footer class="footer text-center">
-    <div class="container">
-      <ul class="list-inline mb-5">
-        <li class="list-inline-item">
-          <a class="social-link rounded-circle text-white mr-3" href="">
-            <i class="icon-social-linkedin"></i>
-          </a>
-        </li>
-        <li class="list-inline-item">
-          <a class="social-link rounded-circle text-white mr-3" href="mailto:ethanzeigler@gmail.com">
-            <i class="icon-envelope-letter"></i>
-          </a>
-        </li>
-        <li class="list-inline-item">
-          <a class="social-link rounded-circle text-white" href="https://github.com/EthanZeigler">
-            <i class="icon-social-github"></i>
-          </a>
-        </li>
-      </ul>
-      <p class="text-muted small mb-0 mx-2 d-inline">Copyright &copy; Ethan Zeigler 2018</p>
-      <p class="text-muted small mb-0 mx-2 d-inline">Logos Copyright &copy; Jill Marbach 2018</p>
-    </div>
-  </footer>
 
     {% block modal %}{% endblock modal %}
 

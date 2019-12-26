@@ -9,15 +9,16 @@ const pjson = require('./package.json')
 // Plugins
 const autoprefixer = require('autoprefixer')
 const browserSync = require('browser-sync').create()
-
-const cssnano = require ('cssnano')
-const imagemin = require('gulp-imagemin')
-const pixrem = require('pixrem')
-const plumber = require('gulp-plumber')
-const postcss = require('gulp-postcss')
-const reload = browserSync.reload
-const rename = require('gulp-rename')
-const sass = require('gulp-sass')
+const concat = require('gulp-concat')
+const cssnano = require ('cssnano');
+const imagemin = require('gulp-imagemin');
+const pixrem = require('pixrem');
+const plumber = require('gulp-plumber');
+const postcss = require('gulp-postcss');
+const reload = browserSync.reload;
+const rename = require('gulp-rename');
+const sass = require('gulp-sass');
+sass.compiler = require('node-sass');
 const spawn = require('child_process').spawn
 const uglify = require('gulp-uglify-es').default
 
@@ -27,7 +28,14 @@ function pathsConfig(appName) {
   const vendorsRoot = 'node_modules'
 
   return {
-    
+    vendorsRoot: `${vendorsRoot}`,
+    bootstrapSass: `${vendorsRoot}/bootstrap/scss`,
+    bootswatchSass: `${vendorsRoot}/bootswatch/dist/lumen`,
+    vendorsJs: [
+      `${vendorsRoot}/jquery/dist/jquery.slim.js`,
+      `${vendorsRoot}/popper.js/dist/umd/popper.js`,
+      `${vendorsRoot}/bootstrap/dist/js/bootstrap.js`,
+    ],
     app: this.app,
     templates: `${this.app}/templates`,
     css: `${this.app}/static/css`,
@@ -58,8 +66,7 @@ function styles() {
   return src(`${paths.sass}/project.scss`)
     .pipe(sass({
       includePaths: [
-        
-        paths.sass
+        paths.vendorsRoot
       ]
     }).on('error', sass.logError))
     .pipe(plumber()) // Checks for errors
@@ -79,7 +86,16 @@ function scripts() {
     .pipe(dest(paths.js))
 }
 
-
+// Vendor Javascript minification
+function vendorScripts() {
+  return src(paths.vendorsJs)
+    .pipe(concat('vendors.js'))
+    .pipe(dest(paths.js))
+    .pipe(plumber()) // Checks for errors
+    .pipe(uglify()) // Minifies the js
+    .pipe(rename({ suffix: '.min' }))
+    .pipe(dest(paths.js))
+}
 
 // Image compression
 function imgCompression() {
@@ -114,7 +130,7 @@ function initBrowserSync() {
 
 // Watch
 function watchPaths() {
-  watch(`${paths.sass}/*.scss`, styles)
+  watch(`${paths.sass}/**/*.scss`, styles)
   watch(`${paths.templates}/**/*.html`).on("change", reload)
   watch([`${paths.js}/*.js`, `!${paths.js}/*.min.js`], scripts).on("change", reload)
 }
@@ -123,7 +139,7 @@ function watchPaths() {
 const generateAssets = parallel(
   styles,
   scripts,
-  
+  vendorScripts,
   imgCompression
 )
 

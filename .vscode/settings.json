@@ -1,4 +1,8 @@
 {
     "python.pythonPath": "/Users/ethanzeigler/Programming/web/ethanzeigler/venv/bin/python3.7",
-    "python.linting.pylintEnabled": true
+    "python.linting.pylintEnabled": true,
+    "cSpell.words": [
+        "browserslist",
+        "pixrem"
+    ]
 }
