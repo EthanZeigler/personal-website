@@ -2,7 +2,7 @@
   "name": "ethanzeigler",
   "version": "0.1.0",
   "dependencies": {
-    "node-sass": "^4.13.0",
+    "node-sass": "^4.13.1",
     "node-sass-import": "^2.0.1"
   },
   "devDependencies": {
